@@ -81,11 +81,11 @@ def read_series(
             "component":       int(int_header[12]),
             "location_name":   str(txt_header[5][10:]).split("component")[0],
             "station_channel": str(int_header[8]),
-            "time_step":       float(real_header[1])
+            "time_step":       1/float(real_header[1])
         }
 
         return QuakeSeries(data, meta={"type": str(txt_header[0]), 
-                                       "time_step": float(real_header[1])}), motion_data
+                                       "time_step": 1/float(real_header[1])}), motion_data
 
 
 
